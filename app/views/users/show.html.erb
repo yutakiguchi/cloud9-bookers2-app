@@ -1,6 +1,17 @@
 <div class="container px-5 pxsm-0">
   <div class="row">
     <div class="col-md-3">
+      <%if [:notice]%>
+      <p id="notice">
+        <%=flash[:notice]%>
+      </p>
+      <%end%>
+      <% if @book.errors.any?%>
+<%=@book.errors.count%>件のエラーが発生しています。
+<%@book.errors.full_messages.each do |message|%>
+<%=message%>
+<%end%>
+<%end%>
 <h2>User info</h2>
 <%=attachment_image_tag @user, :profile_image,:fill,100,100,format:'jpeg',fallback:"no_image.jpg"%>
 <table class="table">
