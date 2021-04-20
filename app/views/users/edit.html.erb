@@ -3,12 +3,12 @@
   <div class="row">
   <div class="mx-auto">
     <%if @user.errors.any?%>
-      <%=@user.errors.count%>件のエラーが発生しました。
+      <%=@user.errors.count%>error。
       <%=@user.errors.full_messages.each do|message|%>
       <%=message%>
       <%end%>
       <%end%>
-    
+
 <h2>User info</h2>
 <%=form_with model:@user,local:true do |f|%>
 <p>Name</p>
@@ -17,7 +17,7 @@
 <%=f.attachment_field :profile_image,placeholder:"プロフィール画像"%>
 <p>introduction</p>
 <%=f.text_area :introduction%>
-<div><%=f.submit "uodate user"%></div>
+<div><%=f.submit "Update User"%></div>
 <%end%>
 </div>
 </div>
